@@ -8,21 +8,50 @@ import { Component } from '@angular/core';
 
 export class UserComponent {
   // Properties
-  firstName = 'Mehdi';
-  lastName = 'Z';
-  age = 38;
-  address = {
-    street: '155 main st',
-    city: 'Dallas',
-    state: 'US'
-  };
+  firstName: string;
+  lastName: string;
+  age: number;
+  address;
 
+  foo: any;
+  hasKids: boolean;
+  numberArray: number[];
+  stringArray: string[];
+  mixedArray: any[];
+  myTuple: [string, number, boolean];
+  unusable: void;
+  u: undefined;
+  n: null;
+  
   // Methods
   constructor() {
+    this.firstName = 'Mehdi';
+    this.lastName = 'Ze';
+    this.age = 30;
 
+    this.address = {
+      street: '155 Main st',
+      city: 'Boston',
+      state: 'US'
+    }
+
+    this.foo = true;
+    this.hasKids = true;
+    this.numberArray = [1,2,3];
+    this.stringArray = ['hello', 'world'];
+    this.mixedArray = ['hello', 1, true, 'hello'];
+    this.unusable = undefined;
+    this.u = undefined;
+    this.n = null;
+
+    console.log(this.addNumbers(2, 3));
   }
 
   showAge() {
     return this.age + 2;
+  }
+
+  addNumbers(num1: number, num2: number): number {
+    return num1 + num2;
   }
 }
