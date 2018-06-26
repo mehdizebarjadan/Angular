@@ -9,23 +9,20 @@ import { Component } from '@angular/core';
 export class UserComponent {
   // Properties
   firstName = 'Mehdi';
-  lastName = 'Ze.';
+  lastName = 'Z';
   age = 38;
+  address = {
+    street: '155 main st',
+    city: 'Dallas',
+    state: 'US'
+  };
 
   // Methods
   constructor() {
-    // this.sayHello();
-    console.log(this.age);
-    this.hasBirthday();
-    console.log(this.age);
 
   }
 
-  sayHello() {
-    console.log(`Hello ${this.firstName}`); //es6 new way to do >> ('Hello' + ' ' + this.firstName)
-  }
-
-  hasBirthday() {
-    this.age += 1;
+  showAge() {
+    return this.age + 2;
   }
 }
