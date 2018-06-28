@@ -18,18 +18,19 @@ export class PostFormComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   addPost(title, body){
     if(!title || !body) {
       alert('Please add post');
     } else {
       this.postService.savePost({title, body} as Post).subscribe(post => {
         this.newPost.emit(post);
-    });
+      });
     }
   }
-
+  
   updatePost() {
+    debugger;
     this.postService.updatePost(this.currentPost).subscribe(post => {
       console.log(post);
       this.isEdit = false;
