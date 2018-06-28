@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { PostService } from '../../services/post.service';
 
 import { Post } from '../../models/Post';
-import { currentId } from 'async_hooks';
 
 @Component({
   selector: 'app-post-form',
@@ -24,19 +23,17 @@ export class PostFormComponent implements OnInit {
     if(!title || !body) {
       alert('Please add post');
     } else {
-      this.postService.savePost({title, body} as Post).subscribe
-    (post => {
-      this.newPost.emit(post);
+      this.postService.savePost({title, body} as Post).subscribe(post => {
+        this.newPost.emit(post);
     });
     }
   }
 
   updatePost() {
-    this.postService.updatePost(this.currentPost).subscribe
-    (post => {
-    console.log(post);
-    this.isEdit = false;
-    this.updatedPost.emit(post);
+    this.postService.updatePost(this.currentPost).subscribe(post => {
+      console.log(post);
+      this.isEdit = false;
+      this.updatedPost.emit(post);
     });
   }
 }
