@@ -31,13 +31,11 @@ export class PostsComponent implements OnInit {
   }
 
   editPost(post: Post) {
-    debugger;
     this.currentPost = post;
     this.isEdit = true;
   }
   
   onUpdatedPost(post: Post) {
-    debugger;
     this.posts.forEach((cur, index) => {
       if(post.id === cur.id) {
         this.posts.splice(index, 1);
